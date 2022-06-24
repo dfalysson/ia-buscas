@@ -5,10 +5,10 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Esta classe modela o famoso quebra-cabeças chamado 8-Puzzle na forma de um
- * estado para um espaço. Nele temos um tabuleiro de três linhas e três colunas,
- * oito peças numeradas e uma posição livre. As peças podem ser movimentadas na
- * vertical ou na horizontal, ocupando sempre a posição vazia.
+ * Esta classe modela o famoso quebra-cabeï¿½as chamado 8-Puzzle na forma de um
+ * estado para um espaï¿½o. Nele temos um tabuleiro de trï¿½s linhas e trï¿½s colunas,
+ * oito peï¿½as numeradas e uma posiï¿½ï¿½o livre. As peï¿½as podem ser movimentadas na
+ * vertical ou na horizontal, ocupando sempre a posiï¿½ï¿½o vazia.
  * 
  * Ex: +---+---+---+  +---+---+---+  +---+---+---+  +---+---+---+  +---+---+---+  +---+---+---+
  *     | 1 | 2 | 3 |  | 1 | 2 | 3 |  | 1 | 2 | 3 |  | 1 | 2 | 3 |  | 1 | 2 | 3 |  | 1 | 2 | 3 |
@@ -18,40 +18,40 @@ import java.util.List;
  *     | 7 | 8 |   |  | 7 | 8 | 6 |  | 7 | 8 | 6 |  | 7 | 8 | 6 |  |   | 8 | 6 |  | 8 |   | 6 |
  *     +---+---+---+  +---+---+---+  +---+---+---+  +---+---+---+  +---+---+---+  +---+---+---+
  *     
- * @author Leandro C. Fernandes
+ * @author Alysson Rodrigo
  *
  */
 public class Puzzle8 extends Estado<char[]> {
 	
 	public static final char[] TABULEIRO_ORGANIZADO = {'1','2','3','4','5','6','7','8',' '};
 	
-	private static int contGlobal = 0;	// contador global de instâncias
-	private char[] tabuleiro;			// vetor que descreve a posição das peças do quebra-cabeças
+	private static int contGlobal = 0;	// contador global de instï¿½ncias
+	private char[] tabuleiro;			// vetor que descreve a posiï¿½ï¿½o das peï¿½as do quebra-cabeï¿½as
 		
 	/**
-	 * Construtor padrão. Cria uma instância que representa uma configuração
-	 * qualquer para o tabuleiro do quebra-cabeças
+	 * Construtor padrï¿½o. Cria uma instï¿½ncia que representa uma configuraï¿½ï¿½o
+	 * qualquer para o tabuleiro do quebra-cabeï¿½as
 	 */
 	public Puzzle8() {
 		this(new char[9], null, 0);
 	}
 	
 	/**
-	 * Permite criar um novo estado e definir, de imediato, qual é a disposição
-	 * de suas peças no tabuleiro. 
-	 * @param cfgTabuleiro vetor de caracteres que representa a posição das peças
+	 * Permite criar um novo estado e definir, de imediato, qual ï¿½ a disposiï¿½ï¿½o
+	 * de suas peï¿½as no tabuleiro. 
+	 * @param cfgTabuleiro vetor de caracteres que representa a posiï¿½ï¿½o das peï¿½as
 	 */
 	public Puzzle8(char[] cfgTabuleiro) {
 		this(cfgTabuleiro, null, 0);
 	}
 	
 	/**
-	 * Permite criar um novo estado, definindo de imediato qual a configuração
-	 * do tabuleiro, o estado que o gerou e também o nível em que este elemento
-	 * ocupará na árvore de busca. 
-	 * @param cfgTabuleiro vetor de caracteres que representa a disposição das peças.
-	 * @param ancestral referência ao nodo pai do estado corrente.
-	 * @param nivel altura do nodo em relação a raiz da árvore de busca.
+	 * Permite criar um novo estado, definindo de imediato qual a configuraï¿½ï¿½o
+	 * do tabuleiro, o estado que o gerou e tambï¿½m o nï¿½vel em que este elemento
+	 * ocuparï¿½ na ï¿½rvore de busca. 
+	 * @param cfgTabuleiro vetor de caracteres que representa a disposiï¿½ï¿½o das peï¿½as.
+	 * @param ancestral referï¿½ncia ao nodo pai do estado corrente.
+	 * @param nivel altura do nodo em relaï¿½ï¿½o a raiz da ï¿½rvore de busca.
 	 */
 	public Puzzle8(char[] cfgTabuleiro, Puzzle8 ancestral, int nivel) {
 		super();
@@ -62,9 +62,9 @@ public class Puzzle8 extends Estado<char[]> {
 	}
 	
 	/**
-	 * Define o posicionamento das peças do quebra-cabeças, determinando a
-	 * configuração que será assumida pelo tabuleiro. 
-	 * @param cfgTabuleiro vetor representando a posição dos elementos no tabuleiro 
+	 * Define o posicionamento das peï¿½as do quebra-cabeï¿½as, determinando a
+	 * configuraï¿½ï¿½o que serï¿½ assumida pelo tabuleiro. 
+	 * @param cfgTabuleiro vetor representando a posiï¿½ï¿½o dos elementos no tabuleiro 
 	 */
 	@Override
 	public void setEstado(char[] cfgTabuleiro) {
@@ -74,8 +74,8 @@ public class Puzzle8 extends Estado<char[]> {
 	}
 	
 	/**
-	 * Retorna a configuração das peças no tabuleiro do quebra-cabeças.
-	 * @return vetor representando a configuração do tabuleiro
+	 * Retorna a configuraï¿½ï¿½o das peï¿½as no tabuleiro do quebra-cabeï¿½as.
+	 * @return vetor representando a configuraï¿½ï¿½o do tabuleiro
 	 */
 	@Override
 	public char[] getEstado() {
@@ -87,7 +87,7 @@ public class Puzzle8 extends Estado<char[]> {
 	}
 	
 	/**
-	 * Método global que retorna a meta (estado objetivo) deste problema. 
+	 * Mï¿½todo global que retorna a meta (estado objetivo) deste problema. 
 	 * @return estado correspondente ao tabuleiro ordenado
 	 */
 	public static Puzzle8 getMeta() {
@@ -101,8 +101,8 @@ public class Puzzle8 extends Estado<char[]> {
 	}
 	
 	/**
-	 * Função que gera os estados sucessores de acordo com os diferentes movimentos possíveis
-	 * a partir da configuração do tabuleiro.
+	 * Funï¿½ï¿½o que gera os estados sucessores de acordo com os diferentes movimentos possï¿½veis
+	 * a partir da configuraï¿½ï¿½o do tabuleiro.
 	 * @return lista de estados sucessores
 	 */
 	@Override
@@ -332,12 +332,12 @@ public class Puzzle8 extends Estado<char[]> {
 	}
 	
 	/**
-	 * Determina o valor de avaliação do estado em relação a uma configuração
-	 * objetivo (estado meta). A métrica implementada (heurística) consiste em
-	 * calcular a distância de cada peça na configuração atual em relação a sua
-	 * posição esperada no objetivo. 
-	 * @param cfgEstadoMeta a configuração do estado utilizado como meta. 
-	 * @return somatório das distâncias das peças em relação a posição objetivo. 
+	 * Determina o valor de avaliaï¿½ï¿½o do estado em relaï¿½ï¿½o a uma configuraï¿½ï¿½o
+	 * objetivo (estado meta). A mï¿½trica implementada (heurï¿½stica) consiste em
+	 * calcular a distï¿½ncia de cada peï¿½a na configuraï¿½ï¿½o atual em relaï¿½ï¿½o a sua
+	 * posiï¿½ï¿½o esperada no objetivo. 
+	 * @param cfgEstadoMeta a configuraï¿½ï¿½o do estado utilizado como meta. 
+	 * @return somatï¿½rio das distï¿½ncias das peï¿½as em relaï¿½ï¿½o a posiï¿½ï¿½o objetivo. 
 	 */
 	public int heuristica(char[] cfgEstadoMeta) {
 		String strEstadoMeta = new String(cfgEstadoMeta);		
@@ -356,7 +356,7 @@ public class Puzzle8 extends Estado<char[]> {
 	}
 		
 	/**
-	 * Retorna uma String correspondente a configuração das peças no tabuleiro. 
+	 * Retorna uma String correspondente a configuraï¿½ï¿½o das peï¿½as no tabuleiro. 
 	 */
 	@Override
 	public String toString() {
@@ -364,7 +364,7 @@ public class Puzzle8 extends Estado<char[]> {
 		msg += "+---+---+---+";
 		msg += "\n| " + tabuleiro[0] + " | " + tabuleiro[1] + " | " + tabuleiro[2] + " |\n";
 		msg += "+---+---+---+";
-		msg += "\n| " + tabuleiro[3] + " | " + tabuleiro[4] + " | " + tabuleiro[5] + " |  Nodo #" + getId() + "  Nível: " + getNivel() + "\n";
+		msg += "\n| " + tabuleiro[3] + " | " + tabuleiro[4] + " | " + tabuleiro[5] + " |  Nodo #" + getId() + "  Nï¿½vel: " + getNivel() + "\n";
 		msg += "+---+---+---+  g(#" + getId() + ") = " + getCusto() + "  h(#" + getId() + ") = " + getAvaliacao();
 		msg += "\n| " + tabuleiro[6] + " | " + tabuleiro[7] + " | " + tabuleiro[8] + " |\n";
 		msg += "+---+---+---+";
@@ -372,8 +372,8 @@ public class Puzzle8 extends Estado<char[]> {
 	}
 
 	/**
-	 * Implementa a comparação entre dois tabuleiros, verificando se a disposição
-	 * das peças é igual nas duas situações.
+	 * Implementa a comparaï¿½ï¿½o entre dois tabuleiros, verificando se a disposiï¿½ï¿½o
+	 * das peï¿½as ï¿½ igual nas duas situaï¿½ï¿½es.
 	 */
 	@Override
 	public boolean equals(Object estado) {

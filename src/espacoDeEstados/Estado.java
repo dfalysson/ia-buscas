@@ -3,31 +3,31 @@ package espacoDeEstados;
 import java.util.List;
 
 /**
- * Esta classe implementa o nível mais abstrato de representação do problema sob
- * a forma de um espaço de estados. Pontualmente, modela uma possível situação ou
- * configuração deste problema (estado), além de ser possível vinculá-lo com outros
- * estados, que é o quesito fundamental para construir espaço de estados.
+ * Esta classe implementa o nï¿½vel mais abstrato de representaï¿½ï¿½o do problema sob
+ * a forma de um espaï¿½o de estados. Pontualmente, modela uma possï¿½vel situaï¿½ï¿½o ou
+ * configuraï¿½ï¿½o deste problema (estado), alï¿½m de ser possï¿½vel vinculï¿½-lo com outros
+ * estados, que ï¿½ o quesito fundamental para construir espaï¿½o de estados.
  * 
- * @author Leandro Fernandes
+ * @author Alysson Rodrigo
  * 
- * @param <T> tipo utilizado para representar e armazenar uma descrição do estado,
+ * @param <T> tipo utilizado para representar e armazenar uma descriï¿½ï¿½o do estado,
  *            segundo o problema que estiver sendo modelado. Trata-se de um tipo
  *            abstrato de dados (TAD), que permite a esta classe operar com qualquer
- *            forma de descrição que for adotada e considerada mais adequada a
- *            representação do problema em questão.
+ *            forma de descriï¿½ï¿½o que for adotada e considerada mais adequada a
+ *            representaï¿½ï¿½o do problema em questï¿½o.
  */
 public abstract class Estado<T> {
 	
 	private int id = 0;					// identificador do estado
-	private int nivel;					// nível em que o estado se encontra na árvore de busca
-	private Estado<?> ancestral = null;	// referencia o nó pai na árvore de busca
+	private int nivel;					// nï¿½vel em que o estado se encontra na ï¿½rvore de busca
+	private Estado<?> ancestral = null;	// referencia o nï¿½ pai na ï¿½rvore de busca
 	
-	protected int avaliacao = 0;		// valor de avaliação do estado em relação a um objetivo
-	protected int custo = 0;			// esforço despendido para alcançar o estado
-	protected int f = 0;				// valor representativo do esforço combinado a avaliação
+	protected int avaliacao = 0;		// valor de avaliaï¿½ï¿½o do estado em relaï¿½ï¿½o a um objetivo
+	protected int custo = 0;			// esforï¿½o despendido para alcanï¿½ar o estado
+	protected int f = 0;				// valor representativo do esforï¿½o combinado a avaliaï¿½ï¿½o
 		
 	/**
-	 * Define o número identificador do estado.
+	 * Define o nï¿½mero identificador do estado.
 	 * @param identificador do estado
 	 */
 	public void setId(int id) {
@@ -43,41 +43,41 @@ public abstract class Estado<T> {
 	}
 	
 	/**
-	 * Define o nível que o estado (nodo) ocupa na árvore de busca.
-	 * @param nível do estado na árvore de busca
+	 * Define o nï¿½vel que o estado (nodo) ocupa na ï¿½rvore de busca.
+	 * @param nï¿½vel do estado na ï¿½rvore de busca
 	 */
 	public void setNivel(int nivel) {
 		this.nivel = nivel;
 	}
 	
 	/**
-	 * Método de acesso que permite recuperar qual o nível (profundidade em
-	 * relação a raiz) que este estado ocupa na árvore de busca.
-	 * @return nível do nodo na árvore de busca
+	 * Mï¿½todo de acesso que permite recuperar qual o nï¿½vel (profundidade em
+	 * relaï¿½ï¿½o a raiz) que este estado ocupa na ï¿½rvore de busca.
+	 * @return nï¿½vel do nodo na ï¿½rvore de busca
 	 */
 	public int getNivel() {
 		return nivel;
 	}
 	
 	/**
-	 * Define qual o estado que originou o estado corrente dentro do espaço
-	 * de busca, ou seja, qual é o seu estado predecessor.
-	 * @param referência ao estado ancestral
+	 * Define qual o estado que originou o estado corrente dentro do espaï¿½o
+	 * de busca, ou seja, qual ï¿½ o seu estado predecessor.
+	 * @param referï¿½ncia ao estado ancestral
 	 */
 	public void setAncestral(Estado<?> estado) {
 		ancestral = estado;
 	}
 	
 	/**
-	 * Recupera o estado predecessor deste estado no espaço de busca.
-	 * @return referência ao estado anterior, sob o qual a ação resultou no estado atual
+	 * Recupera o estado predecessor deste estado no espaï¿½o de busca.
+	 * @return referï¿½ncia ao estado anterior, sob o qual a aï¿½ï¿½o resultou no estado atual
 	 */
 	public Estado<?> getAncestral() {
 		return ancestral;
 	}	
 	
 	/**
-	 * Define um valor que expresse a avaliação deste estado.
+	 * Define um valor que expresse a avaliaï¿½ï¿½o deste estado.
 	 * @param avaliacao
 	 */
 	public void setAvaliacao(int avaliacao) {
@@ -85,32 +85,32 @@ public abstract class Estado<T> {
 	}
 
 	/**
-	 * Retorna a avaliação do estado, uma quantificação para sua condição.
-	 * @return valor de avaliação do estado.
+	 * Retorna a avaliaï¿½ï¿½o do estado, uma quantificaï¿½ï¿½o para sua condiï¿½ï¿½o.
+	 * @return valor de avaliaï¿½ï¿½o do estado.
 	 */
 	public int getAvaliacao() {
 		return avaliacao;
 	}
 
 	/**
-	 * Define um valor que represente o custo acumulado para se alcançar este
-	 * estado dentro do espaço.
-	 * @param custo valor acumulado do esforço realizado.
+	 * Define um valor que represente o custo acumulado para se alcanï¿½ar este
+	 * estado dentro do espaï¿½o.
+	 * @param custo valor acumulado do esforï¿½o realizado.
 	 */
 	public void setCusto(int custo) {
 		this.custo = custo;
 	}	
 	
 	/**
-	 * Recupera o custo despendido para se alcançar este estado dentro do espaço.
-	 * @return valor acumulado do esforço realizado.
+	 * Recupera o custo despendido para se alcanï¿½ar este estado dentro do espaï¿½o.
+	 * @return valor acumulado do esforï¿½o realizado.
 	 */
 	public int getCusto() {
 		return custo;
 	}
 	
 	/**
-	 * Define o valor da função F para o estado corrente.
+	 * Define o valor da funï¿½ï¿½o F para o estado corrente.
 	 * @param valor de F(e).
 	 */
 	public void setF(int f) {
@@ -118,8 +118,8 @@ public abstract class Estado<T> {
 	}	
 	
 	/**
-	 * Recupera o valor da função F para o estado.
-	 * @return valor da função F(e).
+	 * Recupera o valor da funï¿½ï¿½o F para o estado.
+	 * @return valor da funï¿½ï¿½o F(e).
 	 */
 	public int getF() {
 		return f;
@@ -128,34 +128,34 @@ public abstract class Estado<T> {
 	public abstract int heuristica(T cfg);
 	
 	/**
-	 * Status, descrição ou configuração representativa para o estado.
-	 * @param informações que caracterizam este estado 
+	 * Status, descriï¿½ï¿½o ou configuraï¿½ï¿½o representativa para o estado.
+	 * @param informaï¿½ï¿½es que caracterizam este estado 
 	 */
 	public abstract void setEstado(T cfg);
 	
 	/**
-	 * Retorna a configuração do estado 
-	 * @return todas as informações que caracterizam este estado
+	 * Retorna a configuraï¿½ï¿½o do estado 
+	 * @return todas as informaï¿½ï¿½es que caracterizam este estado
 	 */
 	public abstract T getEstado();
 		
 	/**
-	 * Função que gera os estados sucessores de acordo com o problema
+	 * Funï¿½ï¿½o que gera os estados sucessores de acordo com o problema
 	 * @return lista de estados sucessores (adjacentes) a partir deste estado
 	 */
 	public abstract List<?> getSucessores();
 
 	/**
-	 * Permite verificar se este estado é igual a outro.
+	 * Permite verificar se este estado ï¿½ igual a outro.
 	 * @param o estado qual se deseja comparar com este
 	 * @return true ou false
 	 */
 	public abstract boolean equals(Object estado);
 	
 	/**
-	 * Retorna uma representação do estado numa forma textual e que possa ser
+	 * Retorna uma representaï¿½ï¿½o do estado numa forma textual e que possa ser
 	 * apresentada na console, por exemplo.
-	 * @return uma String representativa contendo as informações descritivas do estado
+	 * @return uma String representativa contendo as informaï¿½ï¿½es descritivas do estado
 	 */
 	public abstract String toString();
 	

@@ -12,17 +12,17 @@ public class BranchAndBound extends BuscaInformada {
 	private Queue<Estado<?>> eAbertos;
 
 	/**
-	 * Construtor padrão.
+	 * Construtor 
 	 */
 	public BranchAndBound() {
 		this(null,null);
 	}
 	
 	/**
-	 * Cria uma nova instância de Busca Branch-and-Bound e define os estados
+	 * nova  de Busca Branch-and-Bound 
 	 * inicial e objetivo para o processo.
 	 * @param estadoInicial estado inicial de busca
-	 * @param estadoMeta estado que contém os objetivos da busca
+	 * @param estadoMeta estado objetivos da busca
 	 */
 	public BranchAndBound(Estado<?> estadoInicial, Estado<?> estadoMeta) {
 		super(estadoInicial,estadoMeta);
@@ -41,9 +41,9 @@ public class BranchAndBound extends BuscaInformada {
 				eAbertos.add(estado);
 			eCorrente = eAbertos.poll();
 		}
-		// Se o laço foi encerrado por um estado válido ...
+		// estado valido
 		if (eCorrente != null) {
-			// então construímos o caminho da solução (da folha até a raiz)
+			// caminho constrÃ§Ã£o
 			caminho.add(eCorrente);
 			while (eCorrente.getAncestral() != null) {
 				eCorrente = eCorrente.getAncestral();

@@ -12,17 +12,17 @@ public class BestFirst extends BuscaInformada {
 	private Queue<Estado<?>> eAbertos;
 
 	/**
-	 * Construtor padrão.
+	 * Construtor 
 	 */
 	public BestFirst() {
 		this(null,null);
 	}
 	
 	/**
-	 * Cria uma nova instância de Busca em Largura e define os estados inicial
+	 * nova instancia Busca em Largura
 	 * e objetivo para o processo.
 	 * @param estadoInicial estado inicial de busca
-	 * @param estadoMeta estado que contém os objetivos da busca
+	 * @param estadoMeta objetivos da busca
 	 */
 	public BestFirst(Estado<?> estadoInicial, Estado<?> estadoMeta) {
 		super(estadoInicial,estadoMeta);
@@ -41,9 +41,9 @@ public class BestFirst extends BuscaInformada {
 				eAbertos.add(estado);
 			eCorrente = eAbertos.poll();
 		}
-		// Se o laço foi encerrado por um estado válido ...
+		// se pertencente a um estado valido
 		if (eCorrente != null) {
-			// então construímos o caminho da solução (da folha até a raiz)
+			// caminho de construÃ§Ã£o
 			caminho.add(eCorrente);
 			while (eCorrente.getAncestral() != null) {
 				eCorrente = eCorrente.getAncestral();

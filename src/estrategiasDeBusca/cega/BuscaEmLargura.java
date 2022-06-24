@@ -8,12 +8,9 @@ import java.util.Queue;
 import espacoDeEstados.Estado;
 
 /**
- * Esta classe implementa uma estratégia de busca cega conhecida como "Busca em
- * Largura", característica por explorar o espaço de estados nível-a-nível sempre
- * visitando primeiro os nodos não-expandidos da árvore de busca que se encontram
- * mais próximos da raiz.
+ * Esta classe implementa busca cega 
  * 
- * @author Leandro C. Fernandes
+ * @author Alysson Rodrigo
  *
  */
 public class BuscaEmLargura extends BuscaCega {
@@ -21,17 +18,17 @@ public class BuscaEmLargura extends BuscaCega {
 	private Queue<Estado<?>> eAbertos;
 
 	/**
-	 * Construtor padrão.
+	 * Construtor
 	 */
 	public BuscaEmLargura() {
 		this(null,null);
 	}
 	
 	/**
-	 * Cria uma nova instância de Busca em Largura e define os estados inicial
-	 * e objetivo para o processo.
+	 * Busca em Largura
+	 * 
 	 * @param estadoInicial estado inicial de busca
-	 * @param estadoMeta estado que contém os objetivos da busca
+	 * @param estadoMeta objetivos da busca
 	 */
 	public BuscaEmLargura(Estado<?> estadoInicial, Estado<?> estadoMeta) {
 		super(estadoInicial,estadoMeta);
@@ -40,10 +37,7 @@ public class BuscaEmLargura extends BuscaCega {
 	}
 	
 	/**
-	 * Implementa efetivamente a estratégia de busca, iniciando a exploração do
-	 * espaço a partir do estado inicial e seguindo nível a nível a procura de
-	 * um estado que atenda aos objetivos. Ao término, o caminho correspondente
-	 * a solução encontra-se armazenado no atributo caminho.  
+	 * 
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
@@ -54,9 +48,9 @@ public class BuscaEmLargura extends BuscaCega {
 				eAbertos.add(estado);
 			eCorrente = eAbertos.poll();
 		}
-		// Se o laço foi encerrado por um estado válido ...
+		// caminho
 		if (eCorrente != null) {
-			// então construímos o caminho da solução (da folha até a raiz)
+			// caminho soluÃ§Ã£o
 			caminho.add(eCorrente);
 			while (eCorrente.getAncestral() != null) {
 				eCorrente = eCorrente.getAncestral();

@@ -11,21 +11,21 @@ public class AStar extends BuscaInformada {
 	private Stack<Estado<?>> eAbertos;
 
 	/**
-	 * Construtor padrão.
+	 * Construtor
 	 */
 	public AStar() {
 		this(null,null);
 	}
 	
 	/**
-	 * Cria uma nova instância da Busca Ótima (A*) e define os estados inicial
-	 * e objetivo para o processo.
+	 * define os estados inicial
+	 * e objetivo para o processo
 	 * @param estadoInicial estado inicial de busca
-	 * @param estadoMeta estado que contém os objetivos da busca
+	 * @param estadoMeta objetivos da busca
 	 */
 	public AStar(Estado<?> estadoInicial, Estado<?> estadoMeta) {
 		super(estadoInicial,estadoMeta);
-		nomeDaEstrategia = "Busca Ótima - A* (A-Star)";
+		nomeDaEstrategia = "Busca ï¿½tima - A* (A-Star)";
 		eAbertos = new Stack<Estado<?>>();
 	}
 	
@@ -41,9 +41,9 @@ public class AStar extends BuscaInformada {
 			Collections.reverse((List<Estado<?>>) eAbertos);
 			eCorrente = eAbertos.pop();
 		}
-		// Se o laço foi encerrado por um estado válido ...
+		// caminho valido
 		if (eCorrente != null) {
-			// então construímos o caminho da solução (da folha até a raiz)
+			// caminho soluÃ§Ã£o
 			caminho.add(eCorrente);
 			while (eCorrente.getAncestral() != null) {
 				eCorrente = eCorrente.getAncestral();

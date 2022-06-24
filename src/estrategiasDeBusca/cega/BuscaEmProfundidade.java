@@ -7,11 +7,9 @@ import java.util.Stack;
 import espacoDeEstados.Estado;
 
 /**
- * Esta classe implementa uma estratégia de busca cega conhecida como "Busca em
- * Profundidade", que é característica por explorar o espaço se aprofundando no
- * ramo atual antes de fazê-lo noutra ramificação.
+ * Esta classe implementa uma estrategia de busca cega em profundidade
  * 
- * @author Leandro C. Fernandes
+ * @author Alysson Rodrigo
  *
  */
 public class BuscaEmProfundidade extends BuscaCega {
@@ -19,17 +17,17 @@ public class BuscaEmProfundidade extends BuscaCega {
 	protected Stack<Estado<?>> eAbertos;
 
 	/**
-	 * Construtor padrão.
+	 * Construtor
 	 */
 	public BuscaEmProfundidade() {
 		this(null,null);
 	}
 	
 	/**
-	 * Cria uma nova instância de Busca em Profundidade, definindo os estados
-	 * inicial e objetivo do processo.
+	 * Busca em Profundidade
+	 * inicial e objetivo do processo
 	 * @param estadoInicial estado inicial de busca
-	 * @param estadoMeta estado que contém os objetivos da busca
+	 * @param estadoMeta objetivos da busca
 	 */
 	public BuscaEmProfundidade(Estado<?> estadoInicial, Estado<?> estadoMeta) {
 		super(estadoInicial,estadoMeta);
@@ -38,11 +36,7 @@ public class BuscaEmProfundidade extends BuscaCega {
 	}
 	
 	/**
-	 * Implementa efetivamente a estratégia de busca, iniciando a exploração do
-	 * espaço a partir do estado inicial e seguindo nível a nível no ramo atual
-	 * até alcançar um estado que atenda os objetivos ou não tenha sucessor.
-	 * Ao término, o caminho correspondente a solução terá sido armazenado no
-	 * atributo caminho.
+	 * Inicia a busca cega
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
@@ -53,9 +47,9 @@ public class BuscaEmProfundidade extends BuscaCega {
 				eAbertos.push(estado);
 			eCorrente = eAbertos.pop();
 		}
-		// Se o laço foi encerrado por um estado válido ...
+		// caminho
 		if (eCorrente != null) {
-			// então construímos o caminho da solução (da folha até a raiz)
+			// caminho soluÃ§Ã£o
 			caminho.add(eCorrente);
 			while (eCorrente.getAncestral() != null) {
 				eCorrente = eCorrente.getAncestral();

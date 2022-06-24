@@ -5,13 +5,13 @@ import java.util.List;
 
 /**
  * Esta classe modela o jogo de tabuleiro conhecido como "Jogo da Velha" ou
- * Tic-Tac-Toe na forma de um estado, de modo que seja possível representar as
- * partidas como um conjunto de possibilidades (espaço de estados).
- * Nele temos um tabuleiro de três linhas e três colunas, onde dois jogadores
- * se enfrentam marcando um após o outro as posições livres com um símbolo que
+ * Tic-Tac-Toe na forma de um estado, de modo que seja possï¿½vel representar as
+ * partidas como um conjunto de possibilidades (espaï¿½o de estados).
+ * Nele temos um tabuleiro de trï¿½s linhas e trï¿½s colunas, onde dois jogadores
+ * se enfrentam marcando um apï¿½s o outro as posiï¿½ï¿½es livres com um sï¿½mbolo que
  * os representa.
  * O jogo termina quando um dos jogadores consegue formar uma trinca alinhada ou
- * quando não há mais uma posição vaga que possa ser preenchida.
+ * quando nï¿½o hï¿½ mais uma posiï¿½ï¿½o vaga que possa ser preenchida.
  *  
  * Ex:
  *     |   |          |   |          |   |          |   |          |   |          |   |          |   |
@@ -22,35 +22,35 @@ import java.util.List;
  *     |   |          |   |        X |   |        X |   |        X |   | X      X |   | X    --X-+-X-+-X--
  *     |   |          |   |          |   |          |   |          |   |          |   |          |   |
  *     
- * @author Leandro C. Fernandes
+ * @author Alysson Rodrigo
  *
  */
 public class JogoDaVelha extends Estado<char[]> {
 	
 	private char jogador;
-	private static int contGlobal = 0;	// contador global representando a qde de instâncias
-	private char[] tabuleiro;			// vetor que descreve a posição das peças do quebra-cabeças
+	private static int contGlobal = 0;	// contador global representando a qde de instï¿½ncias
+	private char[] tabuleiro;			// vetor que descreve a posiï¿½ï¿½o das peï¿½as do quebra-cabeï¿½as
 	
 	/**
-	 * Cria uma instância para representar uma configuração para o tabuleiro do quebra-cabeças
+	 * Cria uma instï¿½ncia para representar uma configuraï¿½ï¿½o para o tabuleiro do quebra-cabeï¿½as
 	 */
 	public JogoDaVelha() {
 		this(new char[9], null, 0);
 	}
 	
 	/**
-	 * Permite criar um novo estado, já definindo a configuração para o tabuleiro 
-	 * @param cfgTabuleiro vetor de caracteres que representa a disposição das peças
+	 * Permite criar um novo estado, jï¿½ definindo a configuraï¿½ï¿½o para o tabuleiro 
+	 * @param cfgTabuleiro vetor de caracteres que representa a disposiï¿½ï¿½o das peï¿½as
 	 */
 	public JogoDaVelha(char[] cfgTabuleiro) {
 		this(cfgTabuleiro, null, 0);
 	}
 	
 	/**
-	 * Permite criar um novo estado, já definindo a configuração para o tabuleiro 
-	 * @param cfgTabuleiro vetor de caracteres que representa a disposição das peças
+	 * Permite criar um novo estado, jï¿½ definindo a configuraï¿½ï¿½o para o tabuleiro 
+	 * @param cfgTabuleiro vetor de caracteres que representa a disposiï¿½ï¿½o das peï¿½as
 	 * @param ancestral referencia ao nodo pai do estado corrente
-	 * @param nivel altura do nodo em relação a raiz da árvore
+	 * @param nivel altura do nodo em relaï¿½ï¿½o a raiz da ï¿½rvore
 	 */
 	public JogoDaVelha(char[] cfgTabuleiro, JogoDaVelha ancestral, int nivel) {
 		setId(contGlobal++);
@@ -60,24 +60,24 @@ public class JogoDaVelha extends Estado<char[]> {
 	}
 	
 	/**
-	 * Define o símbolo do próximo jogador (jogador 'X' ou jogador 'O').
+	 * Define o sï¿½mbolo do prï¿½ximo jogador (jogador 'X' ou jogador 'O').
 	 */
 	public void setJogador(char simbolo) {
 		jogador = simbolo;
 	}
 	
 	/**
-	 * Recupera o símbolo do próximo jogador.
-	 * @return símbolo 'X' ou 'O'
+	 * Recupera o sï¿½mbolo do prï¿½ximo jogador.
+	 * @return sï¿½mbolo 'X' ou 'O'
 	 */
 	public char getJogador() {
 		return jogador;
 	}
 	
 	/**
-	 * Define o posicionamento das peças do quebra-cabeças, determinando a configuração
-	 * que será assumida pelo tabuleiro. 
-	 * @param cfgTabuleiro vetor representando a posição dos elementos no tabuleiro 
+	 * Define o posicionamento das peï¿½as do quebra-cabeï¿½as, determinando a configuraï¿½ï¿½o
+	 * que serï¿½ assumida pelo tabuleiro. 
+	 * @param cfgTabuleiro vetor representando a posiï¿½ï¿½o dos elementos no tabuleiro 
 	 */
 	@Override
 	public void setEstado(char[] cfgTabuleiro) {
@@ -87,8 +87,8 @@ public class JogoDaVelha extends Estado<char[]> {
 	}
 	
 	/**
-	 * Retorna a configuração das peças no tabuleiro do quebra-cabeças 
-	 * @return vetor representando a configuração do tabuleiro
+	 * Retorna a configuraï¿½ï¿½o das peï¿½as no tabuleiro do quebra-cabeï¿½as 
+	 * @return vetor representando a configuraï¿½ï¿½o do tabuleiro
 	 */
 	@Override
 	public char[] getEstado() {
@@ -100,8 +100,8 @@ public class JogoDaVelha extends Estado<char[]> {
 	}
 
 	/**
-	 * Função que gera os estados sucessores de acordo com os diferentes movimentos possíveis
-	 * a partir da configuração do tabuleiro.
+	 * Funï¿½ï¿½o que gera os estados sucessores de acordo com os diferentes movimentos possï¿½veis
+	 * a partir da configuraï¿½ï¿½o do tabuleiro.
 	 * @return lista de estados sucessores
 	 */
 	@Override
@@ -128,21 +128,21 @@ public class JogoDaVelha extends Estado<char[]> {
 	}
 
 	/**
-	 * Retorna uma String correspondente a posição das peças no tabuleiro do quebra-cabeças 
+	 * Retorna uma String correspondente a posiï¿½ï¿½o das peï¿½as no tabuleiro do quebra-cabeï¿½as 
 	 */
 	public String toString() {
 		String msg = "";
 		msg += " " + tabuleiro[0] + " | " + tabuleiro[1] + " | " + tabuleiro[2] + "\n";
 		msg += "---+---+---\n";
-		msg += " " + tabuleiro[3] + " | " + tabuleiro[4] + " | " + tabuleiro[5] + "   Nodo #" + getId() + "  Nível: " + getNivel() + "\n";
+		msg += " " + tabuleiro[3] + " | " + tabuleiro[4] + " | " + tabuleiro[5] + "   Nodo #" + getId() + "  Nï¿½vel: " + getNivel() + "\n";
 		msg += "---+---+---\n";
 		msg += " " + tabuleiro[6] + " | " + tabuleiro[7] + " | " + tabuleiro[8] + "\n";
 		return msg;
 	}
 
 	/**
-	 * Implementa a comparação entre dois estados, sendo baseada na disposição das peças no
-	 * tabuleiro do quebra-cabeças
+	 * Implementa a comparaï¿½ï¿½o entre dois estados, sendo baseada na disposiï¿½ï¿½o das peï¿½as no
+	 * tabuleiro do quebra-cabeï¿½as
 	 */
 	public boolean equals(Object obj) {
 		if (this == obj)
